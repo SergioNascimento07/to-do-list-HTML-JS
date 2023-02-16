@@ -7,7 +7,7 @@ const cancelEditBtn = document.querySelector("#cancel-edit-btn")
 // estudar uso de arrow function
 // arrow permite criar funcao como se fosse uma variavel
 let oldValue //salvar o titulo antigo, oq estava digitado na variavel antes
-
+//adicionar rolagem nas atividades
 
 const saveTodo = (text)=> {
     const todo = document.createElement("div") 
