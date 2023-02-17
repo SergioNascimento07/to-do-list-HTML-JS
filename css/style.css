@@ -44,7 +44,7 @@ input, select {
 }
 
 .hide {
-    display: none;
+    display: none !important;
 }
 
 /* Todo header*/
@@ -139,6 +139,24 @@ input, select {
 
 .todo button{
     margin-left: .4rem;
+}
+
+#todo-list {
+    height: 15.6rem;
+    overflow-y: auto;
+}
+
+::-webkit-scrollbar{
+    background-color: #ffffff;
+}
+/* 
+::-webkit-scrollbar-button { mexe
+    
+} */
+
+::-webkit-scrollbar-thumb {
+    background-color: #acacad;
+    border-radius: 10px;
 }
 
 .done {
