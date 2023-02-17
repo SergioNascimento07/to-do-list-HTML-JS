@@ -9,7 +9,9 @@ const cancelEditBtn = document.querySelector("#cancel-edit-btn")
 let oldValue //salvar o titulo antigo, oq estava digitado na variavel antes
 //adicionar rolagem nas atividades
 
+
 const saveTodo = (text)=> {
+
     const todo = document.createElement("div") 
     todo.classList.add("todo")
 // testar se da pra inicializar varias vezes variavel por funcao com const
@@ -33,6 +35,15 @@ const saveTodo = (text)=> {
     todo.appendChild(deleteBtn)
 
     todoList.appendChild(todo)
+    // aplicaçao do localstorage
+
+    var ListaStorage = []
+    if (localStorage.hasOwnProperty("atividades")) {
+        ListaStorage = JSON.parse(localStorage.getItem("atividades"))
+    }   
+    ListaStorage.push({"nomeAtividade": text})
+
+    localStorage.setItem("atividades", JSON.stringify(ListaStorage))
 
     todoInput.value = ""
     todoInput.focus() //para focar de novo na caixa de texto após adicionar tarefa
@@ -71,6 +82,8 @@ document.addEventListener("click", (e)=>{ //essa funcao vai identificar o click 
 
     if (targetEl.classList.contains("remove-todo")) {
         parentEl.remove() //remove o elemento
+        console.log(parentEl.innerText)
+        // adicionar função de remoção do localStorage
     }
 
     if (targetEl.classList.contains("edit-todo")) {
