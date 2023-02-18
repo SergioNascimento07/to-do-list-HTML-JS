@@ -28,7 +28,7 @@ select.addEventListener("change", function(){
                 }
             }
         }
-    })
+})
         
     
     
