@@ -13,9 +13,6 @@ let oldValue //salvar o titulo antigo, oq estava digitado na variavel antes
 
 
 
-
-
-
 function geradorId() {
     var idAleatorio = Math.floor(Date.now() * Math.random()).toString(36)
     return idAleatorio
