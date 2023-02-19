@@ -10,7 +10,8 @@ let oldValue //salvar o titulo antigo, oq estava digitado na variavel antes
 //adicionar rolagem nas atividades
 
 
-
+// Adicionar alterações na mudanca de atividades e guardar informação
+// sobre estar feita ou não ---- "hide": on / "hide": off
 
 
 function geradorId() {
@@ -50,7 +51,7 @@ const saveTodo = (text)=> {
     if (localStorage.hasOwnProperty("atividades")) {
         ListaStorage = JSON.parse(localStorage.getItem("atividades"))
     }   
-    ListaStorage.push({"nomeAtividade":text, "id":todo.id})
+    ListaStorage.push({"nomeAtividade":text, "done": false, "id":todo.id})
 
     localStorage.setItem("atividades", JSON.stringify(ListaStorage))
 
@@ -86,6 +87,18 @@ document.addEventListener("click", (e)=>{ //essa funcao vai identificar o click 
 
     if (targetEl.classList.contains("finish-todo")) { //se o elemento possuir essa classe
         parentEl.classList.toggle("done")
+        var listaAtividades = JSON.parse(localStorage.getItem("atividades"))
+        for (let i of listaAtividades){
+            if (parentEl.id == i["id"]) {
+                if (i["done"] == false){
+                    i["done"] = true
+                    localStorage.setItem("atividades", JSON.stringify(listaAtividades))
+                } else {
+                    i["done"] = false
+                    localStorage.setItem("atividades", JSON.stringify(listaAtividades))
+                }
+            }
+        }
     }
 
     if (targetEl.classList.contains("remove-todo")) {
@@ -125,6 +138,13 @@ const updateTodo = (text) => {
 
         if(todoTitle.innerText == oldInputValue){
             todoTitle.innerText = text
+            var listaAtividades = JSON.parse(localStorage.getItem("atividades"))
+            for (let j of listaAtividades){
+                if (i.id == j["id"]){
+                    j["nomeAtividade"] = text
+                    localStorage.setItem("atividades",JSON.stringify(listaAtividades))
+                }
+            }
         }
     }
 

@@ -1,7 +1,5 @@
 var TodosSalvos = JSON.parse(localStorage.getItem("atividades"))
 var TodoList = document.querySelector("#todo-list")
-console.log(TodosSalvos)
-
     
 if (TodosSalvos.length>0){ 
     for (let x of TodosSalvos) {
@@ -31,7 +29,9 @@ if (TodosSalvos.length>0){
         deleteBtn.innerHTML = '<i class="fa-solid fa-xmark"></i>'
         todo.appendChild(deleteBtn)
 
-        console.log(todo)
+        if (x["done"] == true){
+            todo.classList.add("done")
+        }
     
         TodoList.appendChild(todo)
     }

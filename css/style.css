@@ -50,7 +50,7 @@ input, select {
 /* Todo header*/
 
 .todo-container {
-    max-width: 450px;
+    max-width: 600px;
     margin: 3rem auto 0; /*esta aplicando 3 top, auto aos lados assim centralizando e 0 para baixo*/
     background-color: #fdfdfd;
     padding: 1.5rem;
@@ -142,7 +142,7 @@ input, select {
 }
 
 #todo-list {
-    height: 15.6rem;
+    max-height: 15.65rem;
     overflow-y: auto;
 }
 
